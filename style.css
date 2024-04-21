@@ -1,0 +1,26 @@
+.container {
+    margin-top: 110px;
+  }
+
+  #cityName {
+    color:rgb(255, 153, 0)
+    /* border: 2px solid red ; */
+  }
+
+  .header {
+    margin-bottom: 28px;
+    color:white;
+  }
+
+  #myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    
+  }
+  #cityName{
+    font-weight: bolder;
+  }
