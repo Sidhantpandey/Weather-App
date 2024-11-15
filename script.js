@@ -1,9 +1,8 @@
-
 const options = {
     method: 'GET',
     headers: {
-        'X-RapidAPI-Key': '0998706acamsh4a33989ca3bceb7p109150jsnd3f8c25fd13d',
-        'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
+        'x-rapidapi-key': '0998706acamsh4a33989ca3bceb7p109150jsnd3f8c25fd13d',
+		'x-rapidapi-host': 'open-weather13.p.rapidapi.com'
     }
 };
 const getweathercity = (city) => {
@@ -12,22 +11,22 @@ const getweathercity = (city) => {
     async function weatherapp() {
         try {
             
-            const response = await fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=' + city, options);
+            const response = await fetch(`https://open-weather13.p.rapidapi.com/city/${city}/EN`, options);
             const result = await response.json();
             console.log(result)
-            cloud_pct.innerHTML = result.cloud_pct
-            temp.innerHTML = result.temp
-            temp2.innerHTML = result.temp
-            feels_like.innerHTML = result.feels_like
-            humidity.innerHTML = result.humidity
-            humidity2.innerHTML = result.humidity
-            min_temp.innerHTML = result.min_temp
-            max_temp.innerHTML = result.max_temp
-            wind_speed.innerHTML = result.wind_speed
-            wind_speed2.innerHTML = result.wind_speed
-            wind_degrees.innerHTML = result.wind_degrees
-            sunrise.innerHTML = result.sunrise
-            sunset.innerHTML = result.sunset
+            cloud_pct.innerHTML = result.weather[0].main
+            temp.innerHTML = result.main.temp
+            temp2.innerHTML = result.main.temp
+            feels_like.innerHTML = result.main.feels_like
+            humidity.innerHTML = result.main.humidity
+            humidity2.innerHTML = result.main.humidity
+            min_temp.innerHTML = result.main.temp_min
+            max_temp.innerHTML = result.main.temp_max
+            wind_speed.innerHTML = result.wind.speed
+            wind_speed2.innerHTML = result.wind.speed
+            wind_degrees.innerHTML = result.wind.deg
+            sunrise.innerHTML = result.sys.sunrise
+            sunset.innerHTML = result.sys.sunset
         } catch (error) {
             console.error(error);
         }
